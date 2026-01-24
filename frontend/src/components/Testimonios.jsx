@@ -87,7 +87,7 @@ export const Testimonios = () => {
                                 transition={{ duration: 0.5 }}
                             >
                                 <blockquote className="text-xl lg:text-2xl xl:text-3xl font-light text-foreground leading-relaxed mb-10 pt-8">
-                                    "{testimonials[currentIndex].quote}"
+                                    &ldquo;{testimonials[currentIndex].quote}&rdquo;
                                 </blockquote>
 
                                 {/* Author */}
