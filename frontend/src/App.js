@@ -1,54 +1,98 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+// Components
+import { CustomCursor } from '@/components/CustomCursor';
+import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero';
+import { ParaQuien } from '@/components/ParaQuien';
+import { Metodo } from '@/components/Metodo';
+import { Testimonios } from '@/components/Testimonios';
+import { FAQ } from '@/components/FAQ';
+import { CTA } from '@/components/CTA';
+import { Footer } from '@/components/Footer';
+import { ContactModal } from '@/components/ContactModal';
+import { VideoModal } from '@/components/VideoModal';
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+    // Handle ESC key to close modals
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setIsContactModalOpen(false);
+                setIsVideoModalOpen(false);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    // Prevent body scroll when modal is open
+    useEffect(() => {
+        if (isContactModalOpen || isVideoModalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isContactModalOpen, isVideoModalOpen]);
+
+    const openContactModal = () => setIsContactModalOpen(true);
+    const closeContactModal = () => setIsContactModalOpen(false);
+    
+    const openVideoModal = () => setIsVideoModalOpen(true);
+    const closeVideoModal = () => setIsVideoModalOpen(false);
+
+    return (
+        <BrowserRouter>
+            <div className="min-h-screen bg-background">
+                {/* Custom Cursor */}
+                <CustomCursor />
+
+                {/* Header */}
+                <Header onOpenModal={openContactModal} />
+
+                {/* Main Content */}
+                <main>
+                    <Hero 
+                        onOpenModal={openContactModal} 
+                        onOpenVideo={openVideoModal} 
+                    />
+                    <ParaQuien />
+                    <Metodo />
+                    <Testimonios />
+                    <FAQ />
+                    <CTA onOpenModal={openContactModal} />
+                </main>
+
+                {/* Footer */}
+                <Footer />
+
+                {/* Modals */}
+                <AnimatePresence>
+                    <ContactModal 
+                        isOpen={isContactModalOpen} 
+                        onClose={closeContactModal} 
+                    />
+                </AnimatePresence>
+
+                <AnimatePresence>
+                    <VideoModal 
+                        isOpen={isVideoModalOpen} 
+                        onClose={closeVideoModal} 
+                    />
+                </AnimatePresence>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

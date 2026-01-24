@@ -1,75 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        /* OVO-Style Luxury Palette - Minimal & Sophisticated */
+        --background: 210 20% 98%;
+        --foreground: 215 25% 15%;
+        
         --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card-foreground: 215 25% 15%;
+        
         --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
+        --popover-foreground: 215 25% 15%;
+        
+        /* Primary - Deep Slate/Charcoal for elegance */
+        --primary: 215 25% 15%;
         --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
+        
+        /* Secondary - Soft pearl gray */
+        --secondary: 210 15% 95%;
+        --secondary-foreground: 215 25% 15%;
+        
+        /* Muted - Subtle grays */
+        --muted: 210 15% 93%;
+        --muted-foreground: 215 15% 45%;
+        
+        /* Accent - Warm taupe for luxury feel */
+        --accent: 30 15% 90%;
+        --accent-foreground: 215 25% 15%;
+        
+        /* Functional colors */
+        --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
+        
+        --border: 210 15% 88%;
+        --input: 210 15% 88%;
+        --ring: 215 25% 15%;
+        
+        /* Custom luxury tokens */
+        --pearl: 210 20% 98%;
+        --slate-dark: 215 25% 15%;
+        --slate-medium: 215 15% 35%;
+        --warm-gray: 30 8% 75%;
+        --gold-subtle: 40 30% 85%;
+        
+        /* Shadows & Effects */
+        --shadow-soft: 0 4px 20px -4px hsl(215 25% 15% / 0.08);
+        --shadow-medium: 0 8px 30px -8px hsl(215 25% 15% / 0.12);
+        --shadow-elegant: 0 20px 60px -15px hsl(215 25% 15% / 0.15);
+        
+        /* Glass effect */
+        --glass-bg: hsl(0 0% 100% / 0.7);
+        --glass-border: hsl(210 15% 88% / 0.5);
+        
+        /* Transitions */
+        --transition-smooth: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        
         --radius: 0.5rem;
     }
+    
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --background: 215 25% 8%;
+        --foreground: 210 20% 98%;
+        
+        --card: 215 25% 12%;
+        --card-foreground: 210 20% 98%;
+        
+        --popover: 215 25% 12%;
+        --popover-foreground: 210 20% 98%;
+        
+        --primary: 210 20% 98%;
+        --primary-foreground: 215 25% 15%;
+        
+        --secondary: 215 20% 18%;
+        --secondary-foreground: 210 20% 98%;
+        
+        --muted: 215 20% 18%;
+        --muted-foreground: 210 15% 60%;
+        
+        --accent: 215 20% 22%;
+        --accent-foreground: 210 20% 98%;
+        
+        --border: 215 20% 22%;
+        --input: 215 20% 22%;
+        --ring: 210 20% 98%;
     }
 }
 
@@ -77,11 +95,143 @@ code {
     * {
         @apply border-border;
     }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        cursor: none;
+    }
+    
+    /* Hide default cursor on interactive elements */
+    a, button, [role="button"], input, textarea, select {
+        cursor: none;
     }
 }
 
+/* Custom cursor styles */
+.custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: hsl(var(--slate-dark));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    backdrop-filter: blur(2px);
+}
+
+.custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid hsl(var(--slate-dark) / 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    backdrop-filter: blur(1px);
+}
+
+/* Typography utilities */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    
+    .tracking-luxury {
+        letter-spacing: 0.1em;
+    }
+    
+    .tracking-wide-luxury {
+        letter-spacing: 0.15em;
+    }
+    
+    /* Glass morphism */
+    .glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+    }
+    
+    .glass-strong {
+        background: hsl(0 0% 100% / 0.85);
+        backdrop-filter: blur(30px);
+        border: 1px solid hsl(210 15% 88% / 0.6);
+    }
+    
+    /* Elegant shadows */
+    .shadow-soft {
+        box-shadow: var(--shadow-soft);
+    }
+    
+    .shadow-elegant {
+        box-shadow: var(--shadow-elegant);
+    }
+    
+    /* Smooth transitions */
+    .transition-smooth {
+        transition: all var(--transition-smooth);
+    }
+    
+    .transition-spring {
+        transition: all var(--transition-spring);
+    }
+    
+    /* Line decoration */
+    .line-accent {
+        position: relative;
+    }
+    
+    .line-accent::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 1px;
+        background: hsl(var(--slate-dark));
+    }
+    
+    /* Fade up animation helper */
+    .fade-up-initial {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* Selection styling */
+::selection {
+    background: hsl(var(--slate-dark));
+    color: hsl(var(--pearl));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Debug wrapper */
 @layer base {
     [data-debug-wrapper="true"] {
         display: contents !important;

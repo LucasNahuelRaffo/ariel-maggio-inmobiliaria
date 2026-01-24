@@ -1,34 +1,36 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* App-specific styles - keeping minimal as we use Tailwind */
+
+/* Smooth scroll behavior for anchor links */
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Better text rendering */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.App-link {
-    color: #61dafb;
+/* Remove tap highlight on mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Focus visible styles for accessibility */
+:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+/* Custom selection color */
+::selection {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
 }
