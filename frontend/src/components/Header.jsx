@@ -3,11 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const navLinks = [
-    { label: 'Método', href: '#metodo' },
-    { label: 'Testimonios', href: '#testimonios' },
-    { label: 'FAQ', href: '#faq' },
-];
 
 export const Header = ({ onOpenModal }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -22,13 +17,6 @@ export const Header = ({ onOpenModal }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (href) => {
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-        setIsMobileMenuOpen(false);
-    };
 
     return (
         <>
@@ -44,38 +32,26 @@ export const Header = ({ onOpenModal }) => {
             >
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex items-center justify-between">
-                        {/* Logo */}
                         <motion.a
                             href="#"
-                            className="cursor-hover"
+                            className="cursor-hover flex items-center gap-3"
                             whileHover={{ scale: 1.02 }}
                             transition={{ type: 'spring', stiffness: 300 }}
                         >
-                            <span className="text-lg md:text-xl font-medium tracking-luxury-wide text-foreground uppercase">
-                                Ariel Maggio
-                            </span>
+                            <img
+                                src="/logo.png"
+                                alt="Logo"
+                                className="h-16 w-auto"
+                            />
+                            <div className="flex flex-col">
+                                <span className="text-base md:text-lg font-bold tracking-luxury-wide text-foreground uppercase">
+                                    Team Connection
+                                </span>
+                                <span className="text-[9px] tracking-[0.25em] text-primary font-semibold uppercase -mt-1">
+                                    Keller Williams
+                                </span>
+                            </div>
                         </motion.a>
-
-                        {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center gap-10">
-                            {navLinks.map((link, index) => (
-                                <motion.button
-                                    key={link.href}
-                                    onClick={() => scrollToSection(link.href)}
-                                    className="text-sm tracking-luxury text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase cursor-hover"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ 
-                                        duration: 0.4, 
-                                        delay: index * 0.1,
-                                        ease: [0.25, 0.1, 0.25, 1]
-                                    }}
-                                    whileHover={{ y: -2 }}
-                                >
-                                    {link.label}
-                                </motion.button>
-                            ))}
-                        </nav>
 
                         {/* CTA Button */}
                         <div className="hidden md:block">
@@ -87,7 +63,7 @@ export const Header = ({ onOpenModal }) => {
                                 <Button
                                     onClick={onOpenModal}
                                     variant="outline"
-                                    className="text-xs tracking-luxury uppercase border-foreground/20 hover:bg-foreground hover:text-background transition-all duration-300 px-6 py-5"
+                                    className="text-xs tracking-luxury uppercase border-foreground/20 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 px-6 py-5"
                                 >
                                     Agendar Diagnóstico
                                 </Button>
@@ -131,18 +107,6 @@ export const Header = ({ onOpenModal }) => {
                             exit={{ opacity: 0, y: 20 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                         >
-                            {navLinks.map((link, index) => (
-                                <motion.button
-                                    key={link.href}
-                                    onClick={() => scrollToSection(link.href)}
-                                    className="text-2xl tracking-luxury text-foreground uppercase cursor-hover"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 + 0.2 }}
-                                >
-                                    {link.label}
-                                </motion.button>
-                            ))}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
