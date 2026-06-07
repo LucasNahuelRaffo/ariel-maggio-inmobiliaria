@@ -39,7 +39,7 @@ export const Header = ({ onOpenModal }) => {
                             transition={{ type: 'spring', stiffness: 300 }}
                         >
                             <img
-                                src="/Pasted-20260607-011953_preview_rev_1.png"
+                                src={`${process.env.PUBLIC_URL}/Pasted-20260607-011953_preview_rev_1.png`}
                                 alt="Logo"
                                 className="h-20 w-auto"
                             />
