@@ -26,16 +26,16 @@ export const CTA = ({ onOpenModal }) => {
                     transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                     <span className="inline-block text-xs tracking-luxury-wide uppercase text-background/50 mb-6">
-                        Da el primer paso
+                        Da el paso con fe
                     </span>
                     
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light text-background tracking-tight mb-6">
-                        ¿Listo para vender con{' '}
-                        <span className="font-medium">estrategia</span>?
+                        ¿Listo para una{' '}
+                        <span className="font-medium text-primary">asesoría justa y transparente</span>?
                     </h2>
                     
                     <p className="text-background/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
-                        Agendá una llamada de diagnóstico sin compromiso. Conocemos tu situación y te explicamos cómo podemos ayudarte.
+                        Agendá una llamada de diagnóstico sin compromiso. Te acompañamos en todo el proceso de compra y venta para que tomes decisiones con tranquilidad.
                     </p>
 
                     <motion.div
@@ -46,7 +46,7 @@ export const CTA = ({ onOpenModal }) => {
                         <Button
                             onClick={onOpenModal}
                             size="lg"
-                            className="group bg-background text-foreground hover:bg-background/90 text-sm tracking-luxury uppercase px-10 py-7 transition-all duration-300"
+                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-sm tracking-luxury uppercase px-10 py-7 transition-all duration-300"
                         >
                             Agendar llamada gratuita
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -60,7 +60,7 @@ export const CTA = ({ onOpenModal }) => {
                         animate={isInView ? { opacity: 1 } : {}}
                         transition={{ duration: 0.5, delay: 0.5 }}
                     >
-                        Sin compromiso • Respuesta en 24hs
+                        Sin compromiso • Acompañamiento Humano
                     </motion.p>
                 </motion.div>
             </div>

@@ -57,8 +57,8 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                 >
                     {/* Tag */}
                     <motion.div variants={itemVariants}>
-                        <span className="inline-block text-xs tracking-luxury-wide uppercase text-muted-foreground mb-6 pb-2 border-b border-foreground/20">
-                            Inmobiliaria Premium
+                        <span className="inline-block text-xs tracking-luxury-wide uppercase text-primary font-semibold mb-6 pb-2 border-b border-primary/20">
+                            Team Connection • Keller Williams
                         </span>
                     </motion.div>
 
@@ -67,10 +67,8 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                         className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-foreground mb-8"
                         variants={itemVariants}
                     >
-                        Una venta inmobiliaria exitosa{' '}
-                        <span className="font-medium">no es suerte.</span>
-                        <br />
-                        <span className="text-muted-foreground">Es método.</span>
+                        Ordenamos tu{' '}
+                        <span className="font-semibold text-primary">decisión inmobiliaria.</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -78,7 +76,7 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                         className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-12"
                         variants={itemVariants}
                     >
-                        Acompañamos a propietarios que buscan resultados reales, con una estrategia de marketing y negociación diseñada para maximizar valor.
+                        Somos personas. Nuestro trabajo empieza dándote claridad y acompañándote a tomar decisiones conscientes para cuidar tu patrimonio.
                     </motion.p>
 
                     {/* CTAs */}
@@ -89,9 +87,9 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                         <Button
                             onClick={onOpenModal}
                             size="lg"
-                            className="group bg-foreground text-background hover:bg-foreground/90 text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
+                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
                         >
-                            Ver disponibilidad para una llamada
+                            Agendar asesoría gratuita
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
 
@@ -99,23 +97,14 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                             onClick={onOpenVideo}
                             variant="outline"
                             size="lg"
-                            className="group border-foreground/20 hover:bg-foreground/5 text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
+                            className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
                         >
-                            <Play className="mr-2 w-4 h-4" />
+                            <Play className="mr-2 w-4 h-4 group-hover:text-primary-foreground transition-colors duration-300" />
                             Ver Video Explicativo
-                            <span className="ml-2 text-muted-foreground text-xs">(3 min)</span>
+                            <span className="ml-2 text-primary/60 group-hover:text-primary-foreground/70 text-xs transition-colors duration-300">(3 min)</span>
                         </Button>
                     </motion.div>
 
-                    {/* Trust Indicator */}
-                    <motion.div
-                        className="mt-16 pt-8 border-t border-foreground/10"
-                        variants={itemVariants}
-                    >
-                        <p className="text-xs tracking-luxury uppercase text-muted-foreground">
-                            Más de 10 años de experiencia en el mercado inmobiliario
-                        </p>
-                    </motion.div>
                 </motion.div>
             </div>
 

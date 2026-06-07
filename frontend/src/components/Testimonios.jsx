@@ -62,7 +62,7 @@ export const Testimonios = () => {
                     </span>
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground tracking-tight">
                         Lo que dicen nuestros{' '}
-                        <span className="font-medium">clientes</span>
+                        <span className="font-medium text-primary">clientes</span>
                     </h2>
                 </motion.div>
 

@@ -51,7 +51,7 @@ export const FAQ = () => {
                         </span>
                         <h2 className="text-3xl lg:text-4xl font-light text-foreground tracking-tight mb-6">
                             Respuestas{' '}
-                            <span className="font-medium">directas</span>
+                            <span className="font-medium text-primary">directas</span>
                         </h2>
                         <p className="text-muted-foreground leading-relaxed">
                             Transparencia es parte de nuestro método. Si tenés otras preguntas, agendá una llamada y conversamos.
@@ -70,7 +70,7 @@ export const FAQ = () => {
                                 <AccordionItem
                                     key={index}
                                     value={`item-${index}`}
-                                    className="border border-border bg-background px-6 lg:px-8 data-[state=open]:shadow-soft transition-shadow duration-300"
+                                    className="border border-border border-l-transparent data-[state=open]:border-l-primary data-[state=open]:border-l-2 bg-background px-6 lg:px-8 data-[state=open]:shadow-soft transition-all duration-300"
                                 >
                                     <AccordionTrigger className="text-left text-base lg:text-lg font-medium text-foreground hover:no-underline py-6 [&[data-state=open]>svg]:rotate-180">
                                         {faq.question}

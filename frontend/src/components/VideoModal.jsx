@@ -87,58 +87,16 @@ export const VideoModal = ({ isOpen, onClose }) => {
                                 </div>
                             ) : (
                                 /* Video Player */
-                                <div className="absolute inset-0 flex items-center justify-center bg-foreground">
-                                    {/* 
-                                        Replace this with your actual video embed.
-                                        Example with YouTube:
-                                        <iframe
-                                            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
-                                            className="w-full h-full"
-                                            allow="autoplay; fullscreen"
-                                            allowFullScreen
-                                        />
-                                        
-                                        Or with Vimeo:
-                                        <iframe
-                                            src="https://player.vimeo.com/video/YOUR_VIDEO_ID?autoplay=1"
-                                            className="w-full h-full"
-                                            allow="autoplay; fullscreen"
-                                            allowFullScreen
-                                        />
-                                    */}
-                                    
-                                    {/* Placeholder Video Player UI */}
-                                    <div className="flex flex-col items-center justify-center text-center p-8">
-                                        <motion.div
-                                            className="w-16 h-16 border-2 border-background/30 rounded-full flex items-center justify-center mb-6"
-                                            animate={{ 
-                                                scale: [1, 1.1, 1],
-                                                opacity: [0.5, 1, 0.5]
-                                            }}
-                                            transition={{ 
-                                                repeat: Infinity, 
-                                                duration: 2,
-                                                ease: "easeInOut"
-                                            }}
-                                        >
-                                            <div className="w-4 h-4 bg-background/50 rounded-full" />
-                                        </motion.div>
-                                        <p className="text-background/80 text-lg mb-2">
-                                            Reproductor de Video
-                                        </p>
-                                        <p className="text-background/50 text-sm max-w-md">
-                                            Inserta aquí tu video de YouTube, Vimeo o archivo MP4 para mostrar tu método de trabajo.
-                                        </p>
-                                        
-                                        {/* Example of how to add a video */}
-                                        <div className="mt-8 p-4 bg-background/10 rounded text-left text-xs text-background/60 font-mono max-w-md">
-                                            <p className="mb-2">// Ejemplo de código:</p>
-                                            <p>{'<iframe'}</p>
-                                            <p className="ml-2">{'src="https://youtube.com/embed/ID"'}</p>
-                                            <p className="ml-2">{'allowFullScreen'}</p>
-                                            <p>{'/>'}</p>
-                                        </div>
-                                    </div>
+                                <div className="absolute inset-0 flex items-center justify-center bg-black">
+                                    <video
+                                        src="https://assets.mixkit.co/videos/preview/mixkit-luxury-home-entrance-and-facade-32492-large.mp4"
+                                        className="w-full h-full object-cover"
+                                        controls
+                                        autoPlay
+                                        muted
+                                        playsInline
+                                        loop
+                                    />
                                 </div>
                             )}
                         </motion.div>

@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const WHATSAPP_NUMBER = '5491112345678'; // Replace with actual WhatsApp number
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría agendar una llamada de diagnóstico para mi propiedad.');
+const WHATSAPP_NUMBER = '5491171815431'; 
+const WHATSAPP_MESSAGE = encodeURIComponent('Buen dia Team Connection , como puedo agendar una asesoria ? ');
 
 export const ContactModal = ({ isOpen, onClose }) => {
     const handleWhatsAppClick = () => {

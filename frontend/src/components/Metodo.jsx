@@ -1,29 +1,50 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, Megaphone, Handshake } from 'lucide-react';
+import { Briefcase, Zap, Scale, Star, TrendingUp, Heart } from 'lucide-react';
 
 const steps = [
     {
         number: '01',
-        icon: Search,
-        title: 'Valuación Estratégica',
-        description: 'Análisis de mercado real.',
-        detail: 'Estudiamos comparables, tendencias del sector y características únicas de tu propiedad para determinar el precio óptimo que maximice tu retorno.',
+        icon: Briefcase,
+        title: 'Confiá en expertos para tu propiedad',
+        description: 'Profesionales con experiencia comprobada.',
+        detail: 'Gestionamos cada aspecto de tu operación con el conocimiento y la trayectoria necesaria para que estés en las mejores manos.',
     },
     {
         number: '02',
-        icon: Megaphone,
-        title: 'Marketing Premium',
-        description: 'Difusión segmentada.',
-        detail: 'Fotografía profesional, home staging virtual, y campañas dirigidas a compradores calificados. Tu propiedad se presenta donde realmente importa.',
+        icon: Zap,
+        title: 'Venta eficiente y rápida',
+        description: 'Resultados en el menor tiempo posible.',
+        detail: 'Aplicamos estrategias de difusión y negociación que aceleran los tiempos de venta sin resignar el valor de tu propiedad.',
     },
     {
         number: '03',
-        icon: Handshake,
-        title: 'Negociación y Cierre',
-        description: 'Defendemos el valor.',
-        detail: 'Experiencia en negociaciones complejas. Protegemos tus intereses en cada instancia hasta la firma final, asegurando las mejores condiciones.',
+        icon: Scale,
+        title: 'Apoyo en trámites legales',
+        description: 'Respaldo jurídico en cada etapa.',
+        detail: 'Te acompañamos en todos los aspectos legales de la operación: escrituras, contratos y gestión notarial para que todo esté en regla.',
+    },
+    {
+        number: '04',
+        icon: Star,
+        title: 'Servicios a tu alcance',
+        description: 'Todo lo que necesitás, en un solo lugar.',
+        detail: 'Desde la tasación hasta la entrega de llaves, cubrimos cada paso del proceso para que no tengas que preocuparte por nada.',
+    },
+    {
+        number: '05',
+        icon: TrendingUp,
+        title: 'Orientación financiera confiable',
+        description: 'Asesoramiento transparente sobre tu inversión.',
+        detail: 'Te brindamos información clara sobre el mercado, financiamiento y opciones de inversión para que tomes decisiones con seguridad.',
+    },
+    {
+        number: '06',
+        icon: Heart,
+        title: 'Conexión humana',
+        description: 'Trato cercano y personalizado.',
+        detail: 'Entendemos que cada operación es única. Construimos relaciones de confianza que van más allá de la transacción.',
     },
 ];
 
@@ -42,21 +63,21 @@ export const Metodo = () => {
                     transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                     <span className="inline-block text-xs tracking-luxury-wide uppercase text-muted-foreground mb-4">
-                        Nuestro Método
+                        Nuestro Compromiso
                     </span>
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground tracking-tight mb-6">
-                        Un proceso diseñado para{' '}
-                        <span className="font-medium">resultados</span>
+                        ¿Qué{' '}
+                        <span className="font-medium text-primary">aseguramos?</span>
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                        Cada venta es única. Nuestro método se adapta a tu propiedad, manteniendo estándares que garantizan el mejor resultado.
+                        Cada operación viene respaldada por estándares claros. Esto es lo que podés esperar trabajando con nosotros.
                     </p>
                 </motion.div>
 
                 {/* Timeline */}
                 <div className="relative">
                     {/* Vertical Line - Desktop */}
-                    <div className="hidden lg:block absolute left-[60px] top-0 bottom-0 w-px bg-border" />
+                    <div className="hidden lg:block absolute left-[60px] top-0 bottom-0 w-px bg-primary/20" />
 
                     {/* Steps */}
                     <div className="space-y-12 lg:space-y-0">
@@ -84,7 +105,7 @@ export const Metodo = () => {
                                             <span className="text-3xl font-light text-foreground/30 mb-1">
                                                 {step.number}
                                             </span>
-                                            <Icon className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+                                            <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
                                         </motion.div>
                                     </div>
 
@@ -97,10 +118,10 @@ export const Metodo = () => {
                                                     {step.number}
                                                 </span>
                                             </div>
-                                            <Icon className="w-5 h-5 text-foreground" strokeWidth={1.5} />
+                                            <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                                         </div>
 
-                                        <div className="lg:pl-8 lg:border-l lg:border-transparent hover:border-foreground/10 transition-colors duration-300">
+                                        <div className="lg:pl-8 lg:border-l lg:border-transparent hover:border-primary/25 transition-colors duration-300">
                                             <h3 className="text-xl lg:text-2xl font-medium text-foreground mb-2">
                                                 {step.title}
                                             </h3>
