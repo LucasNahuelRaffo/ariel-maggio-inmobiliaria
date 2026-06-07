@@ -34,14 +34,14 @@ export const Header = ({ onOpenModal }) => {
                     <div className="flex items-center justify-between">
                         <motion.a
                             href="#"
-                            className="cursor-hover flex items-center gap-3"
+                            className="cursor-hover flex items-center gap-0"
                             whileHover={{ scale: 1.02 }}
                             transition={{ type: 'spring', stiffness: 300 }}
                         >
                             <img
                                 src="/Pasted-20260607-011953_preview_rev_1.png"
                                 alt="Logo"
-                                className="h-16 w-auto"
+                                className="h-20 w-auto"
                             />
                             <div className="flex flex-col">
                                 <span className="text-base md:text-lg font-bold tracking-luxury-wide text-foreground uppercase">
