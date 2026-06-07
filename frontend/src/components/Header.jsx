@@ -39,7 +39,7 @@ export const Header = ({ onOpenModal }) => {
                             transition={{ type: 'spring', stiffness: 300 }}
                         >
                             <img
-                                src="/logo.png"
+                                src="/logo1.png"
                                 alt="Logo"
                                 className="h-16 w-auto"
                             />
