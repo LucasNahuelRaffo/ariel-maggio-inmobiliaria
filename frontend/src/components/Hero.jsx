@@ -81,27 +81,27 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
 
                     {/* CTAs */}
                     <motion.div
-                        className="flex flex-col sm:flex-row gap-3 items-center sm:items-start"
+                        className="flex flex-row flex-wrap gap-3 justify-center sm:justify-start"
                         variants={itemVariants}
                     >
                         <Button
                             onClick={onOpenModal}
                             size="lg"
-                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-xs sm:text-sm tracking-luxury uppercase px-6 py-5 sm:px-8 sm:py-7 w-3/4 sm:w-auto transition-all duration-300"
+                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-[10px] sm:text-sm tracking-luxury uppercase px-4 py-4 sm:px-8 sm:py-7 transition-all duration-300"
                         >
-                            Agendar asesoría gratuita
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                            Agendar asesoría
+                            <ArrowRight className="ml-1 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
 
                         <Button
                             onClick={onOpenVideo}
                             variant="outline"
                             size="lg"
-                            className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs sm:text-sm tracking-luxury uppercase px-6 py-5 sm:px-8 sm:py-7 w-3/4 sm:w-auto transition-all duration-300"
+                            className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground text-[10px] sm:text-sm tracking-luxury uppercase px-4 py-4 sm:px-8 sm:py-7 transition-all duration-300"
                         >
-                            <Play className="mr-2 w-4 h-4 group-hover:text-primary-foreground transition-colors duration-300" />
-                            Ver Video Explicativo
-                            <span className="ml-2 text-primary/60 group-hover:text-primary-foreground/70 text-xs transition-colors duration-300">(3 min)</span>
+                            <Play className="mr-1 w-3 h-3 sm:w-4 sm:h-4 group-hover:text-primary-foreground transition-colors duration-300" />
+                            Ver video
+                            <span className="ml-1 text-primary/60 group-hover:text-primary-foreground/70 text-[10px] transition-colors duration-300">(3 min)</span>
                         </Button>
                     </motion.div>
 
