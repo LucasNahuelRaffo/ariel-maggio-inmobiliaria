@@ -81,13 +81,13 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
 
                     {/* CTAs */}
                     <motion.div
-                        className="flex flex-col sm:flex-row gap-4"
+                        className="flex flex-col sm:flex-row gap-3 items-center sm:items-start"
                         variants={itemVariants}
                     >
                         <Button
                             onClick={onOpenModal}
                             size="lg"
-                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
+                            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-xs sm:text-sm tracking-luxury uppercase px-6 py-5 sm:px-8 sm:py-7 w-3/4 sm:w-auto transition-all duration-300"
                         >
                             Agendar asesoría gratuita
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -97,7 +97,7 @@ export const Hero = ({ onOpenModal, onOpenVideo }) => {
                             onClick={onOpenVideo}
                             variant="outline"
                             size="lg"
-                            className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm tracking-luxury uppercase px-8 py-7 transition-all duration-300"
+                            className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs sm:text-sm tracking-luxury uppercase px-6 py-5 sm:px-8 sm:py-7 w-3/4 sm:w-auto transition-all duration-300"
                         >
                             <Play className="mr-2 w-4 h-4 group-hover:text-primary-foreground transition-colors duration-300" />
                             Ver Video Explicativo

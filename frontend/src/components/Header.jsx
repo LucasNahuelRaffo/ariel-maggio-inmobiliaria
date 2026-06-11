@@ -4,6 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 
+const mobileNavLinks = [
+    { label: 'Método', href: '#metodo' },
+    { label: 'Testimonios', href: '#testimonios' },
+    { label: 'FAQ', href: '#faq' },
+];
+
 export const Header = ({ onOpenModal }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,6 +22,14 @@ export const Header = ({ onOpenModal }) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const scrollToSection = (href) => {
+        setIsMobileMenuOpen(false);
+        setTimeout(() => {
+            const element = document.querySelector(href);
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    };
 
 
     return (
@@ -101,12 +115,24 @@ export const Header = ({ onOpenModal }) => {
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
                         <motion.nav
-                            className="relative flex flex-col items-center justify-center h-full gap-8"
+                            className="relative flex flex-col items-center justify-center h-full gap-6"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                         >
+                            {mobileNavLinks.map((link, index) => (
+                                <motion.button
+                                    key={link.href}
+                                    onClick={() => scrollToSection(link.href)}
+                                    className="text-2xl tracking-luxury text-foreground uppercase cursor-hover"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 + 0.2 }}
+                                >
+                                    {link.label}
+                                </motion.button>
+                            ))}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -117,7 +143,7 @@ export const Header = ({ onOpenModal }) => {
                                         setIsMobileMenuOpen(false);
                                         onOpenModal();
                                     }}
-                                    className="mt-4 text-sm tracking-luxury uppercase bg-foreground text-background hover:bg-foreground/90 px-8 py-6"
+                                    className="mt-2 text-sm tracking-luxury uppercase bg-foreground text-background hover:bg-foreground/90 px-8 py-6"
                                 >
                                     Agendar Diagnóstico
                                 </Button>
