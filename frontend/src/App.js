@@ -67,7 +67,7 @@ function App() {
     const closeVideoModal = () => setIsVideoModalOpen(false);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="min-h-screen bg-background">
                 <CustomCursor />
 
