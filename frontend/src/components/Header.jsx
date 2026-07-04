@@ -64,23 +64,6 @@ export const Header = ({ onOpenModal }) => {
                             </div>
                         </MotionLink>
 
-                        {/* Desktop Nav */}
-                        <nav className="hidden md:flex items-center gap-8">
-                            {navLinks.map((link, index) => (
-                                <motion.button
-                                    key={link.href}
-                                    onClick={() => scrollToSection(link.href)}
-                                    className="text-sm tracking-luxury text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase cursor-hover"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    whileHover={{ y: -2 }}
-                                >
-                                    {link.label}
-                                </motion.button>
-                            ))}
-                        </nav>
-
                         {/* CTA Button desktop */}
                         <div className="hidden md:block">
                             <motion.div
