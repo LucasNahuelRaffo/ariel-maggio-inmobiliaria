@@ -39,7 +39,7 @@ export const Footer = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <a href="#" className="inline-block mb-6 cursor-hover">
+                            <Link to="/" className="inline-block mb-6 cursor-hover">
                                 <div className="flex flex-col">
                                     <span className="text-lg font-bold tracking-luxury-wide text-foreground uppercase">
                                         Team Connection
@@ -48,7 +48,7 @@ export const Footer = () => {
                                         Keller Williams
                                     </span>
                                 </div>
-                            </a>
+                            </Link>
                             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-8">
                                 Ordenamos tu decisión inmobiliaria con claridad, estrategia consciente y un sólido acompañamiento humano.
                             </p>
