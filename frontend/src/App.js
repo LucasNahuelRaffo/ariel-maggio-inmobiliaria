@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -15,11 +15,32 @@ import { Footer } from '@/components/Footer';
 import { ContactModal } from '@/components/ContactModal';
 import { VideoModal } from '@/components/VideoModal';
 
+// Pages
+import { PoliticaPrivacidad } from '@/pages/PoliticaPrivacidad';
+import { CondicionesServicio } from '@/pages/CondicionesServicio';
+import { EliminacionDatos } from '@/pages/EliminacionDatos';
+
+function HomePage({ onOpenModal, onOpenVideo }) {
+    return (
+        <>
+            <Header onOpenModal={onOpenModal} />
+            <main>
+                <Hero onOpenModal={onOpenModal} onOpenVideo={onOpenVideo} />
+                <ParaQuien />
+                <Metodo />
+                <Testimonios />
+                <FAQ />
+                <CTA onOpenModal={onOpenModal} />
+            </main>
+            <Footer />
+        </>
+    );
+}
+
 function App() {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
-    // Handle ESC key to close modals
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
@@ -27,67 +48,55 @@ function App() {
                 setIsVideoModalOpen(false);
             }
         };
-
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-    // Prevent body scroll when modal is open
     useEffect(() => {
         if (isContactModalOpen || isVideoModalOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
-
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
+        return () => { document.body.style.overflow = 'unset'; };
     }, [isContactModalOpen, isVideoModalOpen]);
 
     const openContactModal = () => setIsContactModalOpen(true);
     const closeContactModal = () => setIsContactModalOpen(false);
-    
     const openVideoModal = () => setIsVideoModalOpen(true);
     const closeVideoModal = () => setIsVideoModalOpen(false);
 
     return (
         <BrowserRouter>
             <div className="min-h-screen bg-background">
-                {/* Custom Cursor */}
                 <CustomCursor />
 
-                {/* Header */}
-                <Header onOpenModal={openContactModal} />
-
-                {/* Main Content */}
-                <main>
-                    <Hero 
-                        onOpenModal={openContactModal} 
-                        onOpenVideo={openVideoModal} 
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <HomePage
+                                onOpenModal={openContactModal}
+                                onOpenVideo={openVideoModal}
+                            />
+                        }
                     />
-                    <ParaQuien />
-                    <Metodo />
-                    <Testimonios />
-                    <FAQ />
-                    <CTA onOpenModal={openContactModal} />
-                </main>
+                    <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+                    <Route path="/condiciones-servicio" element={<CondicionesServicio />} />
+                    <Route path="/eliminacion-datos" element={<EliminacionDatos />} />
+                </Routes>
 
-                {/* Footer */}
-                <Footer />
-
-                {/* Modals */}
                 <AnimatePresence>
-                    <ContactModal 
-                        isOpen={isContactModalOpen} 
-                        onClose={closeContactModal} 
+                    <ContactModal
+                        isOpen={isContactModalOpen}
+                        onClose={closeContactModal}
                     />
                 </AnimatePresence>
 
                 <AnimatePresence>
-                    <VideoModal 
-                        isOpen={isVideoModalOpen} 
-                        onClose={closeVideoModal} 
+                    <VideoModal
+                        isOpen={isVideoModalOpen}
+                        onClose={closeVideoModal}
                     />
                 </AnimatePresence>
             </div>

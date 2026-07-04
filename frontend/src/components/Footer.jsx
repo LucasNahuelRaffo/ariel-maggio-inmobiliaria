@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }) => (
@@ -145,13 +146,16 @@ export const Footer = () => {
                             Cada oficina es de propiedad y gestión independiente. Toda la información y servicios son prestados por agentes asociados independientes.
                         </p>
                     </div>
-                    <div className="flex gap-6">
-                        <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-hover">
-                            Privacidad
-                        </a>
-                        <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-hover">
-                            Términos
-                        </a>
+                    <div className="flex gap-6 flex-wrap">
+                        <Link to="/politica-privacidad" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-hover">
+                            Política de Privacidad
+                        </Link>
+                        <Link to="/condiciones-servicio" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-hover">
+                            Condiciones del Servicio
+                        </Link>
+                        <Link to="/eliminacion-datos" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-hover">
+                            Eliminación de Datos
+                        </Link>
                     </div>
                 </motion.div>
             </div>

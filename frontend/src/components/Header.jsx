@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-
-const mobileNavLinks = [
+const navLinks = [
     { label: 'Método', href: '#metodo' },
     { label: 'Testimonios', href: '#testimonios' },
     { label: 'FAQ', href: '#faq' },
+];
+
+const legalLinks = [
+    { label: 'Privacidad', to: '/politica-privacidad' },
+    { label: 'Términos', to: '/condiciones-servicio' },
+    { label: 'Eliminación de Datos', to: '/eliminacion-datos' },
 ];
 
 export const Header = ({ onOpenModal }) => {
@@ -15,10 +21,7 @@ export const Header = ({ onOpenModal }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -31,14 +34,11 @@ export const Header = ({ onOpenModal }) => {
         }, 300);
     };
 
-
     return (
         <>
             <motion.header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                    isScrolled
-                        ? 'glass-strong shadow-soft py-4'
-                        : 'bg-transparent py-6'
+                    isScrolled ? 'glass-strong shadow-soft py-4' : 'bg-transparent py-6'
                 }`}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -46,8 +46,9 @@ export const Header = ({ onOpenModal }) => {
             >
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex items-center justify-between">
+                        {/* Logo */}
                         <motion.a
-                            href="#"
+                            href="/"
                             className="cursor-hover flex items-center gap-0"
                             whileHover={{ scale: 1.02 }}
                             transition={{ type: 'spring', stiffness: 300 }}
@@ -67,7 +68,44 @@ export const Header = ({ onOpenModal }) => {
                             </div>
                         </motion.a>
 
-                        {/* CTA Button */}
+                        {/* Desktop Nav */}
+                        <nav className="hidden md:flex items-center gap-8">
+                            {navLinks.map((link, index) => (
+                                <motion.button
+                                    key={link.href}
+                                    onClick={() => scrollToSection(link.href)}
+                                    className="text-sm tracking-luxury text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase cursor-hover"
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                                    whileHover={{ y: -2 }}
+                                >
+                                    {link.label}
+                                </motion.button>
+                            ))}
+
+                            {/* Separador */}
+                            <div className="w-px h-4 bg-foreground/20" />
+
+                            {/* Legal links desktop */}
+                            {legalLinks.map((link, index) => (
+                                <motion.div
+                                    key={link.to}
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: (index + 3) * 0.1 }}
+                                >
+                                    <Link
+                                        to={link.to}
+                                        className="text-[10px] tracking-wider text-muted-foreground/60 hover:text-muted-foreground transition-colors duration-300 uppercase cursor-hover"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </nav>
+
+                        {/* CTA Button desktop */}
                         <div className="hidden md:block">
                             <motion.div
                                 initial={{ opacity: 0, x: 20 }}
@@ -110,7 +148,7 @@ export const Header = ({ onOpenModal }) => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div 
+                        <div
                             className="absolute inset-0 bg-background/95 backdrop-blur-lg"
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
@@ -121,7 +159,7 @@ export const Header = ({ onOpenModal }) => {
                             exit={{ opacity: 0, y: 20 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                         >
-                            {mobileNavLinks.map((link, index) => (
+                            {navLinks.map((link, index) => (
                                 <motion.button
                                     key={link.href}
                                     onClick={() => scrollToSection(link.href)}
@@ -133,17 +171,38 @@ export const Header = ({ onOpenModal }) => {
                                     {link.label}
                                 </motion.button>
                             ))}
+
+                            <div className="w-8 h-px bg-foreground/20 my-2" />
+
+                            {/* Legal links mobile */}
+                            {legalLinks.map((link, index) => (
+                                <motion.div
+                                    key={link.to}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 + 0.5 }}
+                                >
+                                    <Link
+                                        to={link.to}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="text-sm tracking-luxury text-muted-foreground uppercase cursor-hover"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </motion.div>
+                            ))}
+
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
+                                transition={{ delay: 0.8 }}
                             >
                                 <Button
                                     onClick={() => {
                                         setIsMobileMenuOpen(false);
-                                        onOpenModal();
+                                        onOpenModal && onOpenModal();
                                     }}
-                                    className="mt-2 text-sm tracking-luxury uppercase bg-foreground text-background hover:bg-foreground/90 px-8 py-6"
+                                    className="mt-4 text-sm tracking-luxury uppercase bg-foreground text-background hover:bg-foreground/90 px-8 py-6"
                                 >
                                     Agendar Diagnóstico
                                 </Button>
