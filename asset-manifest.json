@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ariel-maggio-inmobiliaria/static/css/main.a39bfa97.css",
-    "main.js": "/ariel-maggio-inmobiliaria/static/js/main.04d868b8.js",
+    "main.css": "/ariel-maggio-inmobiliaria/static/css/main.ccc91a69.css",
+    "main.js": "/ariel-maggio-inmobiliaria/static/js/main.c0e92700.js",
     "index.html": "/ariel-maggio-inmobiliaria/index.html",
-    "main.a39bfa97.css.map": "/ariel-maggio-inmobiliaria/static/css/main.a39bfa97.css.map",
-    "main.04d868b8.js.map": "/ariel-maggio-inmobiliaria/static/js/main.04d868b8.js.map"
+    "main.ccc91a69.css.map": "/ariel-maggio-inmobiliaria/static/css/main.ccc91a69.css.map",
+    "main.c0e92700.js.map": "/ariel-maggio-inmobiliaria/static/js/main.c0e92700.js.map"
   },
   "entrypoints": [
-    "static/css/main.a39bfa97.css",
-    "static/js/main.04d868b8.js"
+    "static/css/main.ccc91a69.css",
+    "static/js/main.c0e92700.js"
   ]
 }
